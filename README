@@ -1,0 +1,19 @@
+ABOUT
+
+    SubRenamer allows you to set a correspondence between multiple
+    video and subtitle filenames so as to allow automatic subtitle
+    loading in video players or multimedia hard drives
+
+
+USING
+    
+    SubRenamer is programmed in Python, therefore no building is
+    needed.
+
+    It does, however, require the following dependencies to run:
+      - Python 2.6
+      - wxPython
+
+    To launch the application run:
+    $ python main.py
+    In the application's root directory
