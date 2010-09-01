@@ -71,7 +71,7 @@
 									<flag>wxALL|wxEXPAND</flag>
 									<border>5</border>
 									<object class="wxListBox" name="lstVideos">
-										<style>wxLB_EXTENDED|wxLB_HSCROLL|wxLB_MULTIPLE</style>
+										<style>wxLB_EXTENDED|wxLB_HSCROLL</style>
 										<content />
 									</object>
 								</object>
@@ -210,7 +210,7 @@
 									<flag>wxALL|wxEXPAND</flag>
 									<border>5</border>
 									<object class="wxListBox" name="lstSubs">
-										<style>wxLB_EXTENDED|wxLB_HSCROLL|wxLB_MULTIPLE</style>
+										<style>wxLB_EXTENDED|wxLB_HSCROLL</style>
 										<content />
 									</object>
 								</object>
