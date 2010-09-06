@@ -25,8 +25,16 @@ Copyright (C) 2010 Revolt
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import wx
+import wx, os, sys
 from frmMain import *
+
+os.chdir(os.path.dirname(sys.argv[0]))
+
+try:
+    sys.stdout = open("out.txt", "w")
+    sys.stderr = open("err.txt", "w")
+except:
+    pass
 
 app = wx.App(False)
 frame = frmMain()
