@@ -166,10 +166,10 @@ def renameFiles(newFileList, destListBox):
         oldFilePath = destListBox.GetClientData(index)
         newFilePath = os.path.join(os.path.dirname(oldFilePath), os.path.splitext(os.path.basename(newFileList[index]))[0] + os.path.splitext(oldFilePath)[1])
         try:
-            print("Renaming '" + oldFilePath + "' to '" + newFilePath + "'")
+            print("Renaming '" + oldFilePath.encode("utf-8") + "' to '" + newFilePath.encode("utf-8") + "'")
             os.rename(oldFilePath, newFilePath)
         except Exception as error:
-            print("Rename of '" + oldFilePath + "' to '" + newFilePath + "' failed: " + str(error))
+            print("Rename of '" + oldFilePath.encode("utf-8") + "' to '" + newFilePath.encode("utf-8") + "' failed: " + str(error))
             oldFileList.append("")
         else:
             # If successful we make the change in the interface aswell
