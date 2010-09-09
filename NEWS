@@ -1,2 +1,6 @@
+== 1.1 ==
+Fixed listbox bug under Windows
+Fixed renaming in paths with strange characters due to UTF-8 problems
+
 == 1.0 == 
 Initial Version
