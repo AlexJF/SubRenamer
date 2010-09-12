@@ -167,7 +167,14 @@ def renameFiles(newFileList, destListBox):
         newFilePath = os.path.join(os.path.dirname(oldFilePath), os.path.splitext(os.path.basename(newFileList[index]))[0] + os.path.splitext(oldFilePath)[1])
         try:
             print("Renaming '" + oldFilePath.encode("utf-8") + "' to '" + newFilePath.encode("utf-8") + "'")
-            os.rename(oldFilePath, newFilePath)
+            # If oldFilePath is equal to newFilePath except for different casing, move it to a temp path
+            # so that case-insensitive SOs actually set the new name to the file
+            if oldFilePath.lower() == newFilePath.lower():
+                tempFilePath = os.path.join(os.path.dirname(oldFilePath), os.path.splitext(os.path.basename(newFileList[index]))[0] + "_temp" + os.path.splitext(oldFilePath)[1])
+                os.rename(oldFilePath, tempFilePath)
+                os.rename(tempFilePath, newFilePath)
+            else:
+                os.rename(oldFilePath, newFilePath)
         except Exception as error:
             print("Rename of '" + oldFilePath.encode("utf-8") + "' to '" + newFilePath.encode("utf-8") + "' failed: " + str(error))
             oldFileList.append("")
