@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python2
 
 """
 File: main.py
@@ -28,7 +28,10 @@ Copyright (C) 2010 Revolt
 import wx, os, sys
 from frmMain import *
 
-os.chdir(os.path.dirname(sys.argv[0]))
+scriptFolder = os.path.dirname(sys.argv[0])
+
+if scriptFolder != '':
+    os.chdir(scriptFolder)
 
 try:
     sys.stdout = open("out.txt", "w")

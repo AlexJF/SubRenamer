@@ -36,8 +36,7 @@ class frmMain:
     """ The main frame of the application """
 
     # Saves the last used location to prevent excessive browsing by the user 
-    lastVidLocation = ""
-    lastSubLocation = ""
+    lastLocation = ""
 
     # These lists are at the heart of the undo/redo system
     undoStack = []
@@ -116,10 +115,10 @@ class frmMain:
     def OnVidAdd(self, event):
         """ Adds user-selected videos to the video listbox """
 
-        dlg = wx.FileDialog(self.frm, "Choose the video files", self.lastVidLocation, "", "Video files (*.avi;*.mov;*.mkv;*.mpg;*.mpeg)|*.avi;*.mov;*.mkv;*.mpg;*.mpeg|All files|*.*", wx.OPEN | wx.MULTIPLE)
+        dlg = wx.FileDialog(self.frm, "Choose the video files", self.lastLocation, "", "Video files (*.avi;*.mov;*.mkv;*.mpg;*.mpeg)|*.avi;*.mov;*.mkv;*.mpg;*.mpeg|All files|*.*", wx.OPEN | wx.MULTIPLE)
 
         if dlg.ShowModal() == wx.ID_OK:
-            self.lastVidLocation = dlg.GetDirectory()
+            self.lastLocation = dlg.GetDirectory()
             undoObj = lst_populateWithFiles(self.lstVideos, dlg.GetPaths())
             self.InsertUndo(undoObj)
 
@@ -144,10 +143,10 @@ class frmMain:
     def OnSubAdd(self, event):
         """ Adds user-selected subs to the subs listbox """
 
-        dlg = wx.FileDialog(self.frm, "Choose the subtitle files", self.lastSubLocation, "", "Subtitle files (*.srt;*.sub)|*.srt;*.sub|All files|*.*", wx.OPEN | wx.MULTIPLE)
+        dlg = wx.FileDialog(self.frm, "Choose the subtitle files", self.lastLocation, "", "Subtitle files (*.srt;*.sub)|*.srt;*.sub|All files|*.*", wx.OPEN | wx.MULTIPLE)
 
         if dlg.ShowModal() == wx.ID_OK:
-            self.lastSubLocation = dlg.GetDirectory()
+            self.lastLocation = dlg.GetDirectory()
             undoObj = lst_populateWithFiles(self.lstSubs, dlg.GetPaths())
             self.InsertUndo(undoObj)
 
