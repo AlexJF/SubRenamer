@@ -115,7 +115,7 @@ class frmMain:
     def OnVidAdd(self, event):
         """ Adds user-selected videos to the video listbox """
 
-        dlg = wx.FileDialog(self.frm, "Choose the video files", self.lastLocation, "", "Video files (*.avi;*.mov;*.mkv;*.mpg;*.mpeg)|*.avi;*.mov;*.mkv;*.mpg;*.mpeg|All files|*.*", wx.OPEN | wx.MULTIPLE)
+        dlg = wx.FileDialog(self.frm, "Choose the video files", self.lastLocation, "", "Video files (*.avi;*.mov;*.mkv;*.mpg;*.mpeg;*.mp4)|*.avi;*.mov;*.mkv;*.mpg;*.mp4;*.mpeg|All files|*.*", wx.OPEN | wx.MULTIPLE)
 
         if dlg.ShowModal() == wx.ID_OK:
             self.lastLocation = dlg.GetDirectory()
